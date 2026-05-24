@@ -2,9 +2,10 @@
   "name": "kron",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "node --check server.js && node --check db.js && node --check public/app.js"
   },
   "repository": {
     "type": "git",
@@ -13,6 +14,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">=24 <25",
+    "npm": ">=11 <12"
+  },
   "bugs": {
     "url": "https://github.com/Seven2111/Kron/issues"
   },
@@ -21,6 +26,7 @@
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "pg": "^8.20.0"
+    "pg": "^8.20.0",
+    "sqlite3": "^6.0.1"
   }
 }

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kron V0</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <section id="login-view" class="auth-shell">
+      <form id="login-form" class="auth-panel" autocomplete="off">
+        <div class="brand-lock">
+          <span class="brand-mark">K</span>
+          <div>
+            <h1>Kron</h1>
+            <p>Private calendar base</p>
+          </div>
+        </div>
+
+        <label for="admin-key">Admin key</label>
+        <input id="admin-key" name="key" type="password" autocomplete="current-password" required>
+        <button type="submit">Enter</button>
+        <p id="login-error" class="form-error" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="app-view" class="app-shell hidden">
+      <header class="topbar">
+        <div class="brand-inline">
+          <span class="brand-mark small">K</span>
+          <div>
+            <strong>Kron</strong>
+            <span>V0 Secure Calendar</span>
+          </div>
+        </div>
+
+        <div class="week-tools">
+          <button id="prev-week" type="button" aria-label="Previous week">Prev</button>
+          <button id="today-week" type="button">Today</button>
+          <button id="next-week" type="button" aria-label="Next week">Next</button>
+          <span id="week-label" class="week-label"></span>
+        </div>
+
+        <button id="logout-button" class="quiet-button" type="button">Logout</button>
+      </header>
+
+      <main class="workspace">
+        <section class="calendar-panel" aria-label="Calendar">
+          <div id="calendar-grid" class="calendar-grid"></div>
+        </section>
+
+        <aside class="side-panel">
+          <form id="event-form" class="event-form" autocomplete="off">
+            <h2>New trading event</h2>
+
+            <label for="event-title">Title</label>
+            <input id="event-title" name="title" maxlength="120" required>
+
+            <div class="field-row">
+              <div>
+                <label for="event-date">Date</label>
+                <input id="event-date" name="date" type="date" required>
+              </div>
+              <div>
+                <label for="event-time">Time</label>
+                <input id="event-time" name="time" type="time">
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div>
+                <label for="event-priority">Priority</label>
+                <select id="event-priority" name="priority">
+                  <option value="0">0</option>
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                </select>
+              </div>
+              <div>
+                <label for="event-symbol">Symbol</label>
+                <input id="event-symbol" name="symbol" maxlength="20" placeholder="SPY">
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div>
+                <label for="event-market">Market</label>
+                <input id="event-market" name="market" maxlength="40" placeholder="NYSE">
+              </div>
+              <div>
+                <label for="event-category">Category</label>
+                <input id="event-category" name="category" maxlength="40" placeholder="Earnings">
+              </div>
+            </div>
+
+            <label for="event-notes">Notes</label>
+            <textarea id="event-notes" name="notes" maxlength="1000" rows="4"></textarea>
+
+            <button type="submit">Create event</button>
+            <p id="event-error" class="form-error" role="alert"></p>
+          </form>
+
+          <section class="agenda-panel" aria-label="Agenda">
+            <div class="panel-title">
+              <h2>Agenda</h2>
+              <span id="event-count"></span>
+            </div>
+            <div id="agenda-list" class="agenda-list"></div>
+          </section>
+        </aside>
+      </main>
+    </section>
+  </body>
+</html>
